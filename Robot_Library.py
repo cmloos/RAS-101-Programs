@@ -11,3 +11,16 @@ def SuckItem(robot: Dobot, position: tuple, jumpheight: float = 20, suck: bool =
     robot.move_to(targetposition.x, targetposition.y, targetposition.z, targetposition.r, wait=True) #Moves the tool to the desired position
     robot.suck(enable=suck) #enables or disables the suction cup for the purposes of grabbing or releasing an object
     robot.move_to(jumpposition.x, jumpposition.y, jumpposition.z, jumpposition.r) #moves the tool back to the jump position
+
+def Initialize(port_index=0, position: tuple = (250, 0, 100, 0), home_on_initialize=True):
+    x, y, z, r = position
+    targetposition = CustomPosition(x, y, z, r)
+
+    available_ports = list_ports.comports()
+    print(available_ports)
+
+    port = available_ports[port_index].device
+    robot = Dobot(port)
+    if home_on_initialize: robot.move_to(targetposition, wait=False)
+
+    return robot, position
