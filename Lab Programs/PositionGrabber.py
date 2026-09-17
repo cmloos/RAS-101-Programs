@@ -9,7 +9,7 @@ HomePosition = CustomPosition(x=250, y=0, z=100, r=0)
 available_ports = list_ports.comports()
 print(f'available ports: {[x.device for x in available_ports]}')
 
-port1 = available_ports[31].device #ACM0
+port1 = available_ports[1].device #COM4
 
 robot1 = Dobot(port1)
 
