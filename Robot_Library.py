@@ -21,6 +21,6 @@ def Initialize(port_index=0, position: tuple = (250, 0, 100, 0), home_on_initial
 
     port = available_ports[port_index].device #Assigns a port based on the port_index from the function's calling parameters
     robot = Dobot(port) #Assigns a Dobot object to the port
-    if home_on_initialize: robot.move_to(targetposition, wait=False) #If home_on_initialize was set to True, which it is by default, then this command will home the robotic arm
+    if home_on_initialize: robot.move_to(wait=False, position=targetposition) #If home_on_initialize was set to True, which it is by default, then this command will home the robotic arm
 
-    return robot, position #returns the dobot object and the customposition object to the caller
+    return robot, targetposition #returns the dobot object and the customposition object to the caller
