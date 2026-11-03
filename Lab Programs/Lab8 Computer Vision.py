@@ -202,7 +202,5 @@ while True:
         tts.say(f"There are {int(red_square_count)} red squares, {int(blue_square_count)} blue squares, {int(green_square_count)} green squares, and {int(yellow_square_count)} yellow squares.")
         tts.runAndWait()
 
-
-
 camera.release()
 cv2.destroyAllWindows()
